@@ -1,0 +1,66 @@
+:root{
+    --border-default: black;
+    --background-block: lightgrey;
+    --background-btn: #00b8d4;
+    --border-correct: green;
+    --border-incorrect: red;
+    --white: #FFFFFF;
+}
+
+body {
+    overflow: scroll;
+}
+
+#title-one,
+#title-score-two {
+    color: var(--border-correct);
+}
+
+#title-two,
+#title-score-one {
+    color: var(--border-incorrect);
+}
+
+.phrase {
+    font-size: 20px;
+    text-align: left;
+}
+
+.typing-field {
+    font-size: 20px;
+    height: 130px;
+}
+
+.field-disabled {
+    background-color: var(--background-block);
+}
+
+.icons {
+    vertical-align: middle;
+}
+
+.border-green {
+    border: 3px solid var(--border-correct);
+}
+
+.border-red {
+    border: 3px solid var(--border-incorrect);
+}
+
+.score {
+    display: none;
+}
+
+#error {
+    color: var(--border-incorrect);
+    display: none;
+}
+
+#phrase-select-id {
+    width: 3.8rem;
+    height: 3.7rem;
+    border-radius: 50%;
+    text-align: center;
+    color: var(--white);
+    background: var(--background-btn);
+}
