@@ -2,7 +2,6 @@ $("#btn-phrase").click(randomPhrase);
 $("#btn-phrase-select").click(phraseSearch);
 
 
-
 //faz a requisição de uma frase aleatória junto ao servidor através do endereço http
 function randomPhrase() {
 
@@ -27,7 +26,6 @@ function changeRandomPhrase(data){
     phrase.text(data[randomNumber].texto);
     updateSentenceLength();
     updateInitialTime(data[randomNumber].tempo);
-    
 }
 
 
@@ -47,7 +45,6 @@ function phraseSearch(){
     .always(function(){
         $("#preloader").hide();
     });
-    
 }
 
 

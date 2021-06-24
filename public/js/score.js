@@ -1,4 +1,5 @@
 $("#btn-score").click(showScore);
+$("#btn-sync").click(synchronizeScore);
 
 
 function insertScore() {
@@ -9,7 +10,7 @@ function insertScore() {
 
     var row = newRow(user,numberCharacters,numberWords);
 
-    row.find(".botao-remover").click(removeLine);
+    row.find(".btn-remove").click(removeLine);
              
     /*prepend insere a linha antes do conteúdo existente na tabela
     o append insere a linha depois do conteúdo existente*/
@@ -30,7 +31,7 @@ function newRow(user,numberCharacters,numberWords){
     var wordsColumn =$("<td>").text(numberWords);
     var iconRemoveColumn =$("<td>");
 
-    var link = $("<a>").addClass("botao-remover").attr("href","#line-one");
+    var link = $("<a>").addClass("btn-remove").attr("href","#line-one");
     var icone = $("<i>").addClass("small").addClass("material-icons").text("delete");
     
     link.append(icone);
@@ -57,4 +58,48 @@ function removeLine(){
 //exibe/oculta o placar
 function showScore(){
     $(".score").stop().slideToggle(600);
+}
+
+function synchronizeScore(){
+    var score = [];
+    var lines = $("tbody tr");
+    lines.each(function(){
+        var user = $(this).find("td:nth-child(1)").text();
+        var numberCharacters = $(this).find("td:nth-child(2)").text();
+        var numberWords = $(this).find("td:nth-child(3)").text();
+        
+        var userScore = {
+            user: user,
+            characterPoints: numberCharacters,
+            wordsPoints: numberWords
+        }
+        score.push(userScore);      
+    });  
+
+    var data = {
+        placar: score
+    };
+
+    $.post("http://localhost:3000/placar",data, function(){
+
+        console.log("salvou os dados no servidor");
+    })
+
+}
+
+function scoreUpdate(){
+
+    $.get("http://localhost:3000/placar", function(data){
+
+        $(data).each(function(){
+
+            var line = newRow(
+                this.user,
+                this.characterPoints,
+                this.charactersColumn
+            );
+            line.find(".btn-remove").click(removeLine);
+            $("tbody").append(line);
+        })
+    });
 }

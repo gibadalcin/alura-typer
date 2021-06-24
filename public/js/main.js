@@ -10,6 +10,7 @@ $(function(){
     startTimer();
     
     $("#btn-reload").click(restartGame);
+    scoreUpdate();
 });
 
 
