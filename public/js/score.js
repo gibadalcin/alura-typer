@@ -103,7 +103,7 @@ function scoreUpdate(){
             var line = newRow(
                 this.user,
                 this.characterPoints,
-                this.charactersColumn
+                this.wordsPoints
             );
             line.find(".btn-remove").click(removeLine);
             $("tbody").append(line);
