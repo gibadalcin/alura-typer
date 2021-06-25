@@ -65,6 +65,14 @@ body {
     background: var(--background-btn);
 }
 
+.buttons {
+    display: inline;
+}
+
 #btn-sync {
     float:right;
 }
+
+
+
+

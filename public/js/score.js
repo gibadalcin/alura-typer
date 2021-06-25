@@ -4,7 +4,7 @@ $("#btn-sync").click(synchronizeScore);
 
 function insertScore() {
     var dataTable = $(".score").find("tbody");
-    var user = "Milk Raio";
+    var user = $("#users").val();
     var numberWords = $("#word-counter").text();
     var numberCharacters = $("#character-counter").text(); 
 
@@ -83,7 +83,14 @@ function synchronizeScore(){
     $.post("http://localhost:3000/placar",data, function(){
 
         console.log("salvou os dados no servidor");
-    })
+        $(".tooltip").tooltipster("open").tooltipster("content","Deu boa!Sincronizado!");
+    }).fail(function(){
+        $(".tooltip").tooltipster("open").tooltipster("content","Deu ruim!Sem conexão!");
+    }).always(function(){
+        setTimeout(function(){
+            $(".tooltip").tooltipster("close");
+        }, 2500); 
+    });
 
 }
 

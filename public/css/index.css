@@ -1,0 +1,58 @@
+:root{
+    --border-default: black;
+    --background-block: lightgrey;
+    --border-correct: green;
+    --border-incorrect: red;
+	--orange: orange;
+    
+}
+
+.card{
+	width: 49%;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.imagem-jogo {
+	margin-left: 1rem;
+}
+#title-one {
+    color: var(--border-correct);
+}
+
+#title-two {
+    color: var(--border-incorrect);
+}
+
+#botao-jogue{
+	width: 150px;
+	display: block;
+	margin: 50px auto;
+}
+
+.slider {
+    height: auto;
+	border:0.1em solid var(--orange);
+	border-radius: 0.25rem;
+	
+	padding:0.5rem;
+}
+
+.slick-prev:before,
+.slick-next:before{
+    color: var(--orange);
+}
+
+#slick-slide-control00::before,
+#slick-slide-control01::before,
+#slick-slide-control02::before {
+	color: var(--orange);
+}
+
+hr {
+	margin-top: 3rem;
+}
+
+.slick-dots {
+	bottom: -2.2rem;
+}

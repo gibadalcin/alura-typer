@@ -115,7 +115,10 @@
   font-size: 23px;
 }
 .selectize-control {
+  display: inline-block;
   position: relative;
+  width: 10rem;
+  vertical-align: middle;
 }
 .selectize-dropdown,
 .selectize-input,

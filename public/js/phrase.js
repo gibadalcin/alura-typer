@@ -7,7 +7,6 @@ function randomPhrase() {
 
     $("#preloader").fadeIn(100).show();
     restartGame();
-    slowScroll($(".title"));
     $.get("http://localhost:3000/frases",changeRandomPhrase)
     .fail(function(){
         error($("#error"))
@@ -15,6 +14,8 @@ function randomPhrase() {
     .always(function(){
         $("#preloader").hide();
     });
+
+    slowScroll($(".phrase"));
 }
 
 
@@ -34,9 +35,7 @@ function phraseSearch(){
 
     $("#preloader").fadeIn(100).show();
     restartGame();
-    slowScroll($(".title"));
     var phraseId = $("#phrase-select-id").val();
-    console.log(phraseId)
     var data = {id: phraseId};
     $.get("http://localhost:3000/frases",data, changePhrase)
     .fail(function(){
@@ -45,6 +44,8 @@ function phraseSearch(){
     .always(function(){
         $("#preloader").hide();
     });
+
+    slowScroll($(".phrase"));
 }
 
 
@@ -55,7 +56,6 @@ function changePhrase(data){
     phrase.text(data.texto);
     updateSentenceLength();
     updateInitialTime(data.tempo);
-    console.log(data)
 }
 
 

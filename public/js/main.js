@@ -11,6 +11,15 @@ $(function(){
     
     $("#btn-reload").click(restartGame);
     scoreUpdate();
+
+    $("#users").selectize({
+        create: true,
+        sortField: 'text'
+    });
+
+    $(".tooltip").tooltipster({
+        trigger:'custom'
+    });
 });
 
 
@@ -25,31 +34,38 @@ function updateSentenceLength(){
          singularAndPlural(
              " palavra",
              " palavras",
-             $("#sentence-length").text()));
+             $("#sentence-length").text()
+        )
+    );
 }
 
 
 /*escuta as interações no campo de input, identifica o número de palavras digitadas em tempo real,
 e executa as funções necessárias*/
-function actionsInputField(counterOne,counterTwo){
+function actionsInputField(){
 
     field.on("input", function(){
 
         editTextField(
             $("#word-counter"),
-            $("#character-counter"));
+            $("#character-counter")
+        );
 
         $("#text-Characters").text(
             singularAndPlural(
                 " caracter",
                 " caracteres",
-                $("#character-counter").text()));
+                $("#character-counter").text()
+            )
+        );
 
         $("#typed-words").text(
             singularAndPlural(
                 " palavra",
                 " palavras",
-                $("#word-counter").text()));
+                $("#word-counter").text()
+            )
+        );
     });
 }
 
@@ -82,8 +98,9 @@ function startTimer() {
                     singularAndPlural(
                         " segundo",
                         " segundos",
-                        $("#typing-time").text()));
-                        
+                        $("#typing-time").text()
+                    )
+                );      
             }
             
         },1000);
@@ -161,7 +178,8 @@ function restartGame(){
         field.removeClass("field-disabled");
         field.removeClass("border-green");
         field.removeClass("border-red");
-        slowScroll($(".title"));
+
+        slowScroll($(".phrase"));
     }
 }
 
